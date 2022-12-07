@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/util/coffe_tile.dart';
+import 'package:flutter_application_1/util/coffe_type.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -69,18 +70,48 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              height: 25,
+              height: 20,
             ),
+            //
+            //listview coffee types
+            Container(
+              height: 30,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CoffeeType(
+                    coffeeType: "Cappucino",
+                    isSelected: true,
+                  ),
+                  CoffeeType(
+                    coffeeType: "Latte",
+                    isSelected: false,
+                  ),
+                  CoffeeType(
+                    coffeeType: "Black",
+                    isSelected: false,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+
             //search bar
             Expanded(
-                child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                CoffeeTile(),
-                CoffeeTile(),
-                CoffeeTile(),
-              ],
-            ))
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CoffeeTile(),
+                  CoffeeTile(),
+                  CoffeeTile(),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
           ],
         ));
   }
