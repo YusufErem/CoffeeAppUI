@@ -1,4 +1,4 @@
-# flutter_application_1
+# CoffeeAppUI
 
 A new Flutter project.
 
