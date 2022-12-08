@@ -13,6 +13,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+//List of coffee types
+  final List coffeeTypes = [
+    ['Cappucino', true],
+    ['Latte', false],
+    ['Turkish', false],
+  ];
+
+// user tapped on coffee types
+
+  void coffeeTypeSelected(int index) {
+    setState(() {
+      // everyone make false
+      for (int i = 0; i < coffeeTypes.length; i++) {
+        coffeeTypes[i][1] = false;
+      }
+      coffeeTypes[index][1] = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,25 +94,18 @@ class _HomePageState extends State<HomePage> {
             //
             //listview coffee types
             Container(
-              height: 30,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  CoffeeType(
-                    coffeeType: "Cappucino",
-                    isSelected: true,
-                  ),
-                  CoffeeType(
-                    coffeeType: "Latte",
-                    isSelected: false,
-                  ),
-                  CoffeeType(
-                    coffeeType: "Black",
-                    isSelected: false,
-                  )
-                ],
-              ),
-            ),
+                height: 30,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: coffeeTypes.length,
+                    itemBuilder: (context, index) {
+                      return CoffeeType(
+                          isSelected: coffeeTypes[index][1],
+                          coffeeType: coffeeTypes[index][0],
+                          onTap: (() {
+                            coffeeTypeSelected(index);
+                          }));
+                    })),
             SizedBox(
               height: 20,
             ),
@@ -103,9 +115,21 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  CoffeeTile(),
-                  CoffeeTile(),
-                  CoffeeTile(),
+                  CoffeeTile(
+                    coffeeImagePath: 'lib/imagesCoffe/CoffeeLatte.jpg',
+                    coffeeName: 'Latte',
+                    coffePrice: '4.20',
+                  ),
+                  CoffeeTile(
+                    coffeeImagePath: 'lib/imagesCoffe/EspressoCoffee.jpg',
+                    coffeeName: 'Espresso',
+                    coffePrice: '2.20',
+                  ),
+                  CoffeeTile(
+                    coffeeImagePath: 'lib/imagesCoffe/turkishCoffee.jpg',
+                    coffeeName: 'Turkish Coffee',
+                    coffePrice: '3.00',
+                  ),
                 ],
               ),
             ),
