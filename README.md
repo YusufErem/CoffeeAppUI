@@ -19,4 +19,4 @@ A basic app UI for buy coffee
   
 ## Screenshot
 
-  <img src="]([https://user-images.githubusercontent.com/92211825/206489756-93e93721-8bc8-47e7-993c-f18ff768751a.png](https://user-images.githubusercontent.com/92211825/206489756-93e93721-8bc8-47e7-993c-f18ff768751a.png)" width = "200" height="400"/>
+  <img src="]((https://user-images.githubusercontent.com/92211825/206489756-93e93721-8bc8-47e7-993c-f18ff768751a.png)" width = "200" height="400"/>
